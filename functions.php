@@ -7,11 +7,6 @@
  * @package _s
  */
 
-if ( ! defined( '_S_VERSION' ) ) {
-	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
-}
-
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -117,12 +112,13 @@ add_action( 'after_setup_theme', '_s_content_width', 0 );
  */
 function _s_scripts() {
 
+	$theme = wp_get_theme();
 	$suffix = ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? '' : '.min';
 
-	wp_enqueue_style( '_s-style', get_stylesheet_directory_uri() . '/assets/css/site.css', [], _S_VERSION );
+	wp_enqueue_style( '_s-style', get_stylesheet_directory_uri() . '/assets/css/site.css', [], $theme->get( 'Version' ) );
 	wp_style_add_data( '_s-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( '_s-main', get_template_directory_uri() . '/assets/js/_s.js', [], _S_VERSION, true );
+	wp_enqueue_script( '_s-main', get_template_directory_uri() . '/assets/js/_s.js', [], $theme->get( 'Version' ), true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
