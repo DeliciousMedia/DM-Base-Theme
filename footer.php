@@ -11,8 +11,8 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
+	<footer id="colophon" class="site-footer is-layout-constrained">
+		<div class="site-info alignwide">
 				<?php
 				/* translators: Theme author. */
 				printf( esc_html__( 'Site by %1$s' ), '<a href="https://www.deliciousmedia.co.uk/">Delicious Media</a>' );
