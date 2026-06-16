@@ -1,0 +1,683 @@
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+}
+main {
+  display: block;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+a {
+  background-color: transparent;
+}
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+b,
+strong {
+  font-weight: bolder;
+}
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -0.25em;
+}
+sup {
+  top: -0.5em;
+}
+img {
+  border-style: none;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+button,
+input {
+  overflow: visible;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+button::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+button:-moz-focusring,
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+progress {
+  vertical-align: baseline;
+}
+textarea {
+  overflow: auto;
+}
+[type=checkbox],
+[type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+}
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+[type=search] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+details {
+  display: block;
+}
+summary {
+  display: list-item;
+}
+template {
+  display: none;
+}
+[hidden] {
+  display: none;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+}
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+  color: var(--wp--preset--color--neutral-dark);
+  font-family: var(--wp--preset--font-family--text);
+  font-size: var(--wp--preset--font-size--small);
+  line-height: var(--wp--custom--line-height--body);
+}
+.darkbg {
+  color: var(--wp--preset--color--neutral-light);
+}
+.darkbg a {
+  color: var(--wp--custom--link-colors--darkbg--link);
+}
+.darkbg a:visited {
+  color: var(--wp--custom--link-colors--darkbg--visited);
+}
+.darkbg a:hover, .darkbg a:focus, .darkbg a:active {
+  color: var(--wp--custom--link-colors--darkbg--hover);
+}
+.darkbg a:focus {
+  outline: 1px dashed var(--wp--preset--color--neutral-light);
+}
+.darkbg a:hover, .darkbg a:active {
+  outline: 0;
+}
+body {
+  background: var(--wp--color--preset--neutral-light);
+}
+hr {
+  background-color: var(--wp--preset--color--neutral-dark);
+  border: 0;
+  height: 1px;
+  margin-bottom: 1.5em;
+}
+ul,
+ol {
+  margin: 0 0 1.5em 3em;
+}
+ul {
+  list-style: disc;
+}
+ol {
+  list-style: decimal;
+}
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-left: 1.5em;
+}
+dt {
+  font-weight: 700;
+}
+dd {
+  margin: 0 1.5em 1.5em;
+}
+embed,
+iframe,
+object {
+  max-width: 100%;
+}
+img {
+  height: auto;
+  max-width: 100%;
+}
+figure {
+  margin: 1em 0;
+}
+table {
+  margin: 0 0 1.5em;
+  width: 100%;
+}
+button,
+input[type=button],
+input[type=reset],
+input[type=submit],
+a.button {
+  justify-content: center;
+  text-decoration: none;
+  border-radius: var(--wp--custom--border-radius--sm);
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
+  justify-content: space-between;
+  cursor: pointer;
+  color: var(--wp--preset--color--neutral-light);
+  background-color: var(--wp--preset--color--primary);
+  border: 2px solid var(--wp--preset--color--primary);
+}
+button:visited,
+input[type=button]:visited,
+input[type=reset]:visited,
+input[type=submit]:visited,
+a.button:visited {
+  color: var(--wp--preset--color--neutral-light);
+}
+button:visited:hover,
+input[type=button]:visited:hover,
+input[type=reset]:visited:hover,
+input[type=submit]:visited:hover,
+a.button:visited:hover {
+  color: var(--wp--preset--color--primary);
+  background-color: var(--wp--preset--color--neutral-light);
+}
+button:hover, button:focus, button:active,
+input[type=button]:hover,
+input[type=button]:focus,
+input[type=button]:active,
+input[type=reset]:hover,
+input[type=reset]:focus,
+input[type=reset]:active,
+input[type=submit]:hover,
+input[type=submit]:focus,
+input[type=submit]:active,
+a.button:hover,
+a.button:focus,
+a.button:active {
+  color: var(--wp--preset--color--primary);
+  background-color: var(--wp--preset--color--neutral-light);
+}
+button:not(a):focus,
+input[type=button]:not(a):focus,
+input[type=reset]:not(a):focus,
+input[type=submit]:not(a):focus,
+a.button:not(a):focus {
+  border-radius: var(--wp--custom--border-radius--sm);
+  outline: 1px dotted var(--wp--preset--color--primary);
+  outline-offset: 2px;
+}
+button:disabled,
+button [disabled=true],
+input[type=button]:disabled,
+input[type=button] [disabled=true],
+input[type=reset]:disabled,
+input[type=reset] [disabled=true],
+input[type=submit]:disabled,
+input[type=submit] [disabled=true],
+a.button:disabled,
+a.button [disabled=true] {
+  color: var(--wp--preset--color--neutral-dark);
+  background-color: #c0c0c0;
+  border-color: #c0c0c0;
+}
+button.secondary,
+input[type=button].secondary,
+input[type=reset].secondary,
+input[type=submit].secondary,
+a.button.secondary {
+  color: var(--wp--preset--color--neutral-light);
+  background-color: var(--wp--preset--color--secondary);
+  border: 2px solid var(--wp--preset--color--secondary);
+}
+button.secondary:visited,
+input[type=button].secondary:visited,
+input[type=reset].secondary:visited,
+input[type=submit].secondary:visited,
+a.button.secondary:visited {
+  color: var(--wp--preset--color--neutral-light);
+}
+button.secondary:visited:hover,
+input[type=button].secondary:visited:hover,
+input[type=reset].secondary:visited:hover,
+input[type=submit].secondary:visited:hover,
+a.button.secondary:visited:hover {
+  color: var(--wp--preset--color--secondary);
+  background-color: var(--wp--preset--color--neutral-light);
+}
+button.secondary:hover, button.secondary:focus, button.secondary:active button.secondary:visited,
+input[type=button].secondary:hover,
+input[type=button].secondary:focus,
+button.secondary:active input[type=button].secondary:visited,
+input[type=reset].secondary:hover,
+input[type=reset].secondary:focus,
+button.secondary:active input[type=reset].secondary:visited,
+input[type=submit].secondary:hover,
+input[type=submit].secondary:focus,
+button.secondary:active input[type=submit].secondary:visited,
+a.button.secondary:hover,
+a.button.secondary:focus,
+button.secondary:active a.button.secondary:visited,
+input[type=button].secondary:active button.secondary:visited,
+input[type=button].secondary:active input[type=button].secondary:visited,
+input[type=button].secondary:active input[type=reset].secondary:visited,
+input[type=button].secondary:active input[type=submit].secondary:visited,
+input[type=button].secondary:active a.button.secondary:visited,
+input[type=reset].secondary:active button.secondary:visited,
+input[type=reset].secondary:active input[type=button].secondary:visited,
+input[type=reset].secondary:active input[type=reset].secondary:visited,
+input[type=reset].secondary:active input[type=submit].secondary:visited,
+input[type=reset].secondary:active a.button.secondary:visited,
+input[type=submit].secondary:active button.secondary:visited,
+input[type=submit].secondary:active input[type=button].secondary:visited,
+input[type=submit].secondary:active input[type=reset].secondary:visited,
+input[type=submit].secondary:active input[type=submit].secondary:visited,
+input[type=submit].secondary:active a.button.secondary:visited,
+a.button.secondary:active button.secondary:visited,
+a.button.secondary:active input[type=button].secondary:visited,
+a.button.secondary:active input[type=reset].secondary:visited,
+a.button.secondary:active input[type=submit].secondary:visited,
+a.button.secondary:active a.button.secondary:visited {
+  color: var(--wp--preset--color--secondary);
+  background-color: var(--wp--preset--color--neutral-light);
+}
+button.secondary:not(a):focus,
+input[type=button].secondary:not(a):focus,
+input[type=reset].secondary:not(a):focus,
+input[type=submit].secondary:not(a):focus,
+a.button.secondary:not(a):focus {
+  border-radius: var(--wp--custom--border-radius--sm);
+  outline: 1px dotted var(--wp--preset--color--secondary);
+  outline-offset: 2px;
+}
+button.secondary:disabled,
+button.secondary [disabled=true],
+input[type=button].secondary:disabled,
+input[type=button].secondary [disabled=true],
+input[type=reset].secondary:disabled,
+input[type=reset].secondary [disabled=true],
+input[type=submit].secondary:disabled,
+input[type=submit].secondary [disabled=true],
+a.button.secondary:disabled,
+a.button.secondary [disabled=true] {
+  color: var(--wp--preset--color--neutral-dark);
+  background-color: #c0c0c0;
+  border-color: #c0c0c0;
+}
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password],
+input[type=search],
+input[type=number],
+input[type=tel],
+input[type=range],
+input[type=date],
+input[type=month],
+input[type=week],
+input[type=time],
+input[type=datetime],
+input[type=datetime-local],
+input[type=color],
+textarea {
+  color: var(--wp--preset--color--neutral-dark);
+  border: 1px solid var(--wp--preset--color--neutral-dark);
+  border-radius: var(--wp--custom--border--radius--sm);
+  padding: 3px;
+  line-height: var(--wp--custom--line-height--body);
+}
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=url]:focus,
+input[type=password]:focus,
+input[type=search]:focus,
+input[type=number]:focus,
+input[type=tel]:focus,
+input[type=range]:focus,
+input[type=date]:focus,
+input[type=month]:focus,
+input[type=week]:focus,
+input[type=time]:focus,
+input[type=datetime]:focus,
+input[type=datetime-local]:focus,
+input[type=color]:focus,
+textarea:focus {
+  color: var(--wp--preset--color--neutral-dark);
+}
+select {
+  border: 1px solid var(--wp--preset--color--neutral-dark);
+}
+textarea {
+  width: 100%;
+}
+.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)).boxed {
+  padding: var(--wp--preset--spacing--20) 0;
+}
+@media only screen and (min-width: 768px) {
+  .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)).boxed {
+    padding: var(--wp--preset--spacing--40) 0;
+  }
+}
+.entry-content.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)),
+.page-content.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+  margin-left: 5% !important;
+}
+@media only screen and (min-width: 1600px) {
+  .entry-content.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)),
+  .page-content.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+    margin-left: calc((100% - var(--wp--style--global--wide-size)) / 2) !important;
+  }
+}
+.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+  margin-left: 5% !important;
+  margin-right: auto;
+  width: 90%;
+}
+@media only screen and (min-width: 1600px) {
+  .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+    margin-left: calc((100% - var(--wp--style--global--wide-size)) / 2) !important;
+  }
+}
+.main-navigation {
+  display: block;
+  width: 100%;
+}
+.main-navigation ul {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+.main-navigation ul ul {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+  float: left;
+  position: absolute;
+  top: 100%;
+  left: -999em;
+  z-index: 99999;
+}
+.main-navigation ul ul ul {
+  left: -999em;
+  top: 0;
+}
+.main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
+  display: block;
+  left: auto;
+}
+.main-navigation ul ul a {
+  width: 200px;
+}
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+  left: auto;
+}
+.main-navigation li {
+  position: relative;
+}
+.main-navigation a {
+  display: block;
+  text-decoration: none;
+}
+.menu-toggle,
+.main-navigation.toggled ul {
+  display: block;
+}
+@media screen and (min-width: 37.5em) {
+  .menu-toggle {
+    display: none;
+  }
+  .main-navigation ul {
+    display: flex;
+  }
+}
+.site-main .comment-navigation,
+.site-main .posts-navigation,
+.site-main .post-navigation {
+  margin: 0 0 1.5em;
+}
+.comment-navigation .nav-links,
+.posts-navigation .nav-links,
+.post-navigation .nav-links {
+  display: flex;
+}
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+  flex: 1 0 50%;
+}
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+  text-align: end;
+  flex: 1 0 50%;
+}
+.sticky {
+  display: block;
+}
+.post,
+.page {
+  margin: 0 0 1.5em;
+}
+.updated:not(.published) {
+  display: none;
+}
+.page-content,
+.entry-content,
+.entry-summary {
+  margin: 1.5em 0 0;
+}
+.page-links {
+  clear: both;
+  margin: 0 0 1.5em;
+}
+.comment-content a {
+  word-wrap: break-word;
+}
+.bypostauthor {
+  display: block;
+}
+.widget {
+  margin: 0 0 1.5em;
+}
+.widget select {
+  max-width: 100%;
+}
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+  border: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+}
+.custom-logo-link {
+  display: inline-block;
+}
+.wp-caption {
+  margin-bottom: 1.5em;
+  max-width: 100%;
+}
+.wp-caption img[class*=wp-image-] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.wp-caption .wp-caption-text {
+  margin: 0.8075em 0;
+}
+.wp-caption-text {
+  text-align: center;
+}
+.gallery {
+  margin-bottom: 1.5em;
+  display: grid;
+  grid-gap: 1.5em;
+}
+.gallery-item {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+.gallery-columns-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.gallery-columns-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.gallery-columns-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.gallery-columns-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+.gallery-columns-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+.gallery-columns-7 {
+  grid-template-columns: repeat(7, 1fr);
+}
+.gallery-columns-8 {
+  grid-template-columns: repeat(8, 1fr);
+}
+.gallery-columns-9 {
+  grid-template-columns: repeat(9, 1fr);
+}
+.gallery-caption {
+  display: block;
+}
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+}
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: var(--wp--custom--border--radius--sm);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  clip-path: none;
+  color: #21759b;
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+}
+#primary[tabindex="-1"]:focus {
+  outline: 0;
+}
+.alignleft {
+  float: left;
+  margin-right: 1.5em;
+  margin-bottom: 1.5em;
+}
+.alignright {
+  float: right;
+  margin-left: 1.5em;
+  margin-bottom: 1.5em;
+}
+.aligncenter {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5em;
+}
