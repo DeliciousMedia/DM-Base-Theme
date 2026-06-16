@@ -1,0 +1,172 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/theme.json",
+    "version": 3,
+    "settings": {
+        "appearanceTools": false,
+        "color": {
+            "custom": false,
+            "defaultGradients": false,
+            "defaultPalette": false,
+            "link": false,
+            "palette": [
+                {
+                    "name": "Neutral",
+                    "slug": "neutral",
+                    "color": "#666"
+                },
+                {
+                    "name": "Neutral Light",
+                    "slug": "neutral-light",
+                    "color": "#ccc"
+                },
+                {
+                    "name": "Neutral Dark",
+                    "slug": "neutral-dark",
+                    "color": "#404040"
+                },
+                {
+                    "name": "Primary",
+                    "slug": "primary",
+                    "color": "MediumVioletRed"
+                },
+                {
+                    "name": "Secondary",
+                    "slug": "secondary",
+                    "color": "Teal"
+                }
+            ]
+        },
+        "dimensions": {
+            "minHeight": false
+        },
+        "layout": {
+            "contentSize": "840px",
+            "wideSize": "1440px"
+        },
+        "position": {
+            "sticky": false
+        },
+        "shadow": {
+            "defaultPresets": false
+        },
+        "spacing": {
+            "customSpacingSize": false
+        },
+        "typography": {
+            "defaultFontSizes": false,
+            "dropCap": false,
+            "fluid": true,
+            "fontFamilies": [
+                {
+                    "name": "Text",
+                    "slug": "text",
+                    "fontFamily": "sans-serif"
+                },
+                {
+                    "name": "Code",
+                    "slug": "font-code",
+                    "fontFamily": "monaco, consolas, 'Andale Mono', 'DejaVu Sans Mono', monospace"
+                },
+                {
+                    "name": "Pre",
+                    "slug": "font-pre",
+                    "fontFamily": "'Courier 10 Pitch', courier, monospace"
+                }
+            ],
+            "fontSizes": [
+                {
+                    "name": "Extra Small",
+                    "slug": "x-small",
+                    "size": "0.5rem"
+                },
+                {
+                    "name": "Small",
+                    "slug": "small",
+                    "size": "1rem"
+                },
+                {
+                    "name": "Medium",
+                    "slug": "medium",
+                    "size": "1.2rem"
+                },
+                {
+                    "name": "Large",
+                    "slug": "large",
+                    "size": "1.6rem"
+                },
+                {
+                    "name": "Extra Large",
+                    "slug": "x-large",
+                    "size": "1.8rem"
+                }
+            ]
+        },
+        "custom": {
+            "max-width": {
+                "mobile": "400px",
+                "desktop": "1440px"
+            },
+            "line-height": {
+                "body": "1.5",
+                "pre": "1.6"
+            },
+            "border-radius": {
+                "sm": "0.3rem",
+                "md": "1rem"
+            },
+            "transition-time": {
+                "reg": "0.25s"
+            },
+            "link-colors": {
+                "lightbg": {
+                    "link": "var(--wp--preset--color--neutral-dark)",
+                    "visited": "var(--wp--preset--color--neutral-dark)",
+                    "hover": "var(--wp--preset--color--neutral-dark)",
+                    "active": "var(--wp--preset--color--neutral-dark)"
+                },
+                "darkbg": {
+                    "link": "var(--wp--preset--color--neutral-light)",
+                    "visited": "var(--wp--preset--color--neutral-light)",
+                    "active": "var(--wp--preset--color--neutral-light)",
+                    "hover": "var(--wp--preset--color--neutral-light)"
+                }
+            }
+        }
+    },
+    "styles": {
+        "typography": {
+            "fontFamily": "var(--wp--preset--font-family--text)",
+            "fontSize": "var(--wp--preset--font-size--medium)"
+        },
+        "elements": {
+            "link": {
+                "color": {
+                    "text": "var(--wp--custom--link-colors--lightbg--link)"
+                },
+                ":hover": {
+                    "color": {
+                        "text": "var(--wp--custom--link-colors--lightbg--active)"
+                    }
+                },
+                ":active": {
+                    "color": {
+                        "text": "var(--wp--custom--link-colors--lightbg--active)"
+                    }
+                },
+                ":visited": {
+                    "color": {
+                        "text": "var(--wp--custom--link-colors--lightbg--visited)"
+                    }
+                },
+                ":focus": {
+                    "outline": {
+                        "offset": "3px",
+                        "width": "3px",
+                        "style": "dashed",
+                        "color": "var(--wp--preset--color--neutral-dark)"
+                    }
+                }
+            }
+        }
+    }
+}
