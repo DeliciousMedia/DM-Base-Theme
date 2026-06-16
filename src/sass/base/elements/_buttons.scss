@@ -3,25 +3,6 @@
 button,
 input[type="button"],
 input[type="reset"],
-<<<<<<< Updated upstream
-input[type="submit"] {
-	border: 1px solid;
-	border-color: $color__border-button;
-	border-radius: 3px;
-	background: $color__background-button;
-	color: rgba(0, 0, 0, 0.8);
-	line-height: 1;
-	padding: 0.6em 1em 0.4em;
-
-	&:hover {
-		border-color: $color__border-button-hover;
-	}
-
-	&:active,
-	&:focus {
-		border-color: $color__border-button-focus;
-	}
-=======
 input[type="submit"],
 a.button {
     justify-content: center;
@@ -33,5 +14,4 @@ a.button {
     &.secondary {
         @include buttons.button-colors(secondary);
     }
->>>>>>> Stashed changes
 }

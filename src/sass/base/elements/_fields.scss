@@ -14,20 +14,6 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-<<<<<<< Updated upstream
-	color: $color__text-input;
-	border: 1px solid $color__border-input;
-	border-radius: 3px;
-	padding: 3px;
-
-	&:focus {
-		color: $color__text-input-focus;
-	}
-}
-
-select {
-	border: 1px solid $color__border-input;
-=======
     color: var(--wp--preset--color--neutral-dark);
     border: 1px solid var(--wp--preset--color--neutral-dark);
     border-radius: var(--wp--custom--border--radius--sm);
@@ -41,7 +27,6 @@ select {
 
 select {
     border: 1px solid var(--wp--preset--color--neutral-dark);
->>>>>>> Stashed changes
 }
 
 textarea {

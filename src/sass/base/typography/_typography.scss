@@ -12,11 +12,6 @@ textarea {
     line-height: var(--wp--custom--line-height--body);
 }
 
-<<<<<<< Updated upstream
-@import "headings";
-@import "copy";
-=======
 .darkbg {
     @include handlecolors.darkbg;
 }
->>>>>>> Stashed changes
