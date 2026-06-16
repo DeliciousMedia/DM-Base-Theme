@@ -36,67 +36,8 @@ function _s_setup() {
 			'menu-1' => esc_html__( 'Primary', '_s' ),
 		]
 	);
-
-	/*
-		* Switch default core markup for search form, comment form, and comments
-		* to output valid HTML5.
-		*/
-	add_theme_support(
-		'html5',
-		[
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-			'style',
-			'script',
-		]
-	);
-
-	// Set up the WordPress core custom background feature.
-	add_theme_support(
-		'custom-background',
-		apply_filters(
-			'_s_custom_background_args',
-			[
-				'default-color' => 'ffffff',
-				'default-image' => '',
-			]
-		)
-	);
-
-	// Add theme support for selective refresh for widgets.
-	add_theme_support( 'customize-selective-refresh-widgets' );
-
-	/**
-	 * Add support for core custom logo.
-	 *
-	 * @link https://codex.wordpress.org/Theme_Logo
-	 */
-	add_theme_support(
-		'custom-logo',
-		[
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
-			'flex-height' => true,
-		]
-	);
 }
 add_action( 'after_setup_theme', '_s_setup' );
-
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function _s_content_width() {
-	$GLOBALS['content_width'] = apply_filters( '_s_content_width', 640 );
-}
-add_action( 'after_setup_theme', '_s_content_width', 0 );
 
 /**
  * Enqueue scripts and styles.
@@ -126,10 +67,3 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
-
-/**
- * Load WooCommerce compatibility file.
- */
-if ( class_exists( 'WooCommerce' ) ) {
-	require get_template_directory() . '/inc/woocommerce.php';
-}
