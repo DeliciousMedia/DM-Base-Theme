@@ -7,96 +7,127 @@
 
 /*jshint esversion: 6 */
 
-( function() {
-	const siteNavigation = document.getElementById( 'site-navigation' );
+(function () {
+    const siteNavigation = document.getElementById("site-navigation");
+    // Return early if the navigation doesn't exist.
+    if (!siteNavigation) {
+        return;
+    }
 
-	// Return early if the navigation doesn't exist.
-	if ( ! siteNavigation ) {
-		return;
-	}
+    const button = siteNavigation.getElementsByTagName("button")[0];
+    // Return early if the button doesn't exist.
+    if ("undefined" === typeof button) {
+        return;
+    }
 
-	const button = siteNavigation.getElementsByTagName( 'button' )[ 0 ];
+    const menu = siteNavigation.getElementsByTagName("ul")[0];
+    // Hide menu toggle button if menu is empty and return early.
+    if ("undefined" === typeof menu) {
+        button.style.display = "none";
+        return;
+    }
 
-	// Return early if the button doesn't exist.
-	if ( 'undefined' === typeof button ) {
-		return;
-	}
+    if (!menu.classList.contains("nav-menu")) {
+        menu.classList.add("nav-menu");
+    }
 
-	const menu = siteNavigation.getElementsByTagName( 'ul' )[ 0 ];
+    // Toggle the .toggled class and the aria-expanded value each time the button is clicked.
+    button.addEventListener("click", function () {
+        if (-1 !== siteNavigation.className.indexOf("toggled")) {
+            siteNavigation.className = siteNavigation.className.replace(" toggled", "");
+            button.setAttribute("aria-expanded", "false");
+        } else {
+            siteNavigation.className += " toggled";
+            button.setAttribute("aria-expanded", "true");
+        }
+    });
 
-	// Hide menu toggle button if menu is empty and return early.
-	if ( 'undefined' === typeof menu ) {
-		button.style.display = 'none';
-		return;
-	}
+    window.onresize = function () {
+        if (-1 !== siteNavigation.className.indexOf("toggled")) {
+            siteNavigation.className = siteNavigation.className.replace(" toggled", "");
+            button.setAttribute("aria-expanded", "false");
+        }
+    };
 
-	if ( ! menu.classList.contains( 'nav-menu' ) ) {
-		menu.classList.add( 'nav-menu' );
-	}
+    // Get all the link elements within the menu.
+    const links = menu.getElementsByTagName("a");
 
-	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
-	button.addEventListener( 'click', function() {
-		siteNavigation.classList.toggle( 'toggled' );
+    // Toggle focus each time a menu link is focused or blurred.
+    for (const link of links) {
+        link.addEventListener("focus", toggleFocus, true);
+        link.addEventListener("blur", toggleFocus, true);
+    }
 
-		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
-			button.setAttribute( 'aria-expanded', 'false' );
-		} else {
-			button.setAttribute( 'aria-expanded', 'true' );
-		}
-	} );
+    /**
+     * Sets or removes .focus class on an element.
+     */
+    function toggleFocus() {
+        if (event.type === "focus" || event.type === "blur") {
+            let self = this;
+            // Move up through the ancestors of the current link until we hit .nav-menu.
+            while (!self.classList.contains("nav-menu")) {
+                // On li elements toggle the class .focus.
+                if ("li" === self.tagName.toLowerCase()) {
+                    self.classList.toggle("focus");
+                }
+                self = self.parentNode;
+            }
+        }
 
-	// Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
-	document.addEventListener( 'click', function( event ) {
-		const isClickInside = siteNavigation.contains( event.target );
+        if (event.type === "touchstart") {
+            const menuItem = this.parentNode;
+            event.preventDefault();
+            for (const link of menuItem.parentNode.children) {
+                if (menuItem !== link) {
+                    link.classList.remove("focus");
+                }
+            }
+            menuItem.classList.toggle("focus");
+        }
+    }
+})();
 
-		if ( ! isClickInside ) {
-			siteNavigation.classList.remove( 'toggled' );
-			button.setAttribute( 'aria-expanded', 'false' );
-		}
-	} );
+/**
+ * Additional menu functionality (using jQuery).
+ */
+jQuery(document).ready(function ($) {
+    // On page load.
+    setTimeout(function () {
+        submenuDropdown();
+    }, 100);
 
-	// Get all the link elements within the menu.
-	const links = menu.getElementsByTagName( 'a' );
+    function submenuDropdown() {
+        $(".main-navigation ul li.menu-item-has-children a").each(function () {
+            var listItem = $(this).closest("li");
+            var childMenu = listItem.children("ul.sub-menu");
 
-	// Get all the link elements with children within the menu.
-	const linksWithChildren = menu.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
+            if (0 < childMenu.length) {
+                $(this).on("click", function (e) {
+                    if (listItem.hasClass("menu-item-has-children")) {
+                        // Prevent top level parent links from navigating to link.
+                        e.preventDefault();
+                    }
 
-	// Toggle focus each time a menu link is focused or blurred.
-	for ( const link of links ) {
-		link.addEventListener( 'focus', toggleFocus, true );
-		link.addEventListener( 'blur', toggleFocus, true );
-	}
+                    // Reset siblings.
+                    var siblings = listItem.siblings();
+                    siblings.each(function () {
+                        if ($(this).hasClass("active")) {
+                            $(this).removeClass("active");
+                            $(this).children("ul.sub-menu").toggle(100);
+                        }
+                    });
 
-	// Toggle focus each time a menu link with children receive a touch event.
-	for ( const link of linksWithChildren ) {
-		link.addEventListener( 'touchstart', toggleFocus, false );
-	}
+                    // Handle classes.
+                    if (!listItem.hasClass("active")) {
+                        listItem.addClass("active");
+                    } else {
+                        listItem.removeClass("active");
+                    }
 
-	/**
-	 * Sets or removes .focus class on an element.
-	 */
-	function toggleFocus() {
-		if ( event.type === 'focus' || event.type === 'blur' ) {
-			let self = this;
-			// Move up through the ancestors of the current link until we hit .nav-menu.
-			while ( ! self.classList.contains( 'nav-menu' ) ) {
-				// On li elements toggle the class .focus.
-				if ( 'li' === self.tagName.toLowerCase() ) {
-					self.classList.toggle( 'focus' );
-				}
-				self = self.parentNode;
-			}
-		}
-
-		if ( event.type === 'touchstart' ) {
-			const menuItem = this.parentNode;
-			event.preventDefault();
-			for ( const link of menuItem.parentNode.children ) {
-				if ( menuItem !== link ) {
-					link.classList.remove( 'focus' );
-				}
-			}
-			menuItem.classList.toggle( 'focus' );
-		}
-	}
-}() );
+                    // Show child level submenu.
+                    childMenu.toggle(100);
+                });
+            }
+        });
+    }
+});

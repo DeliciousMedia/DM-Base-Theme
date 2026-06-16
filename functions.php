@@ -50,6 +50,8 @@ function _s_scripts() {
 	wp_enqueue_style( '_s-style', get_stylesheet_directory_uri() . '/assets/css/site.css', [], $theme->get( 'Version' ) );
 	wp_style_add_data( '_s-style', 'rtl', 'replace' );
 
+	wp_enqueue_script( 'jquery' );
+
 	wp_enqueue_script( '_s-main', get_template_directory_uri() . '/assets/js/site.js', [], $theme->get( 'Version' ), true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
