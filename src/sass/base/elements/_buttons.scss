@@ -1,6 +1,9 @@
+@use "../../abstracts/mixins/buttons";
+
 button,
 input[type="button"],
 input[type="reset"],
+<<<<<<< Updated upstream
 input[type="submit"] {
 	border: 1px solid;
 	border-color: $color__border-button;
@@ -18,4 +21,17 @@ input[type="submit"] {
 	&:focus {
 		border-color: $color__border-button-focus;
 	}
+=======
+input[type="submit"],
+a.button {
+    justify-content: center;
+
+    @include buttons.buttons;
+
+    @include buttons.button-colors(primary);
+
+    &.secondary {
+        @include buttons.button-colors(secondary);
+    }
+>>>>>>> Stashed changes
 }

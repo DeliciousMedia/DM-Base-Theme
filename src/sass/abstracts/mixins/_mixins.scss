@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 // Center block
 @use "sass:math";
 
@@ -11,3 +12,8 @@
 @mixin column-width($numberColumns: 3) {
 	width: map-get($columns, $numberColumns) -  math.div( $columns__margin * ( $numberColumns - 1 ) , $numberColumns) ;
 }
+=======
+@use "master";
+@use "handlecolors";
+@use "buttons";
+>>>>>>> Stashed changes

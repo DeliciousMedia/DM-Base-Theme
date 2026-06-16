@@ -1,14 +1,22 @@
+@use "../../abstracts/mixins/handlecolors";
+
 body,
 button,
 input,
 select,
 optgroup,
 textarea {
-	color: $color__text-main;
-	font-family: $font__main;
-	font-size: 1rem;
-	line-height: $font__line-height-body;
+    color: var(--wp--preset--color--neutral-dark);
+    font-family: var(--wp--preset--font-family--text);
+    font-size: var(--wp--preset--font-size--small);
+    line-height: var(--wp--custom--line-height--body);
 }
 
+<<<<<<< Updated upstream
 @import "headings";
 @import "copy";
+=======
+.darkbg {
+    @include handlecolors.darkbg;
+}
+>>>>>>> Stashed changes

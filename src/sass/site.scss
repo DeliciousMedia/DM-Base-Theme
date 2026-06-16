@@ -6,31 +6,31 @@ Theme Name: _s
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 # Generic
-	- Normalize
-	- Box sizing
+  - Normalize
+  - Box sizing
 # Base
-	- Typography
-	- Elements
-	- Links
-	- Forms
+  - Typography
+  - Elements
+  - Links
+  - Forms
 ## Layouts
 # Components
-	- Navigation
-	- Posts and pages
-	- Comments
-	- Widgets
-	- Media
-	- Captions
-	- Galleries
+  - Navigation
+  - Posts and pages
+  - Comments
+  - Widgets
+  - Media
+  - Captions
+  - Galleries
 # Utilities
-	- Accessibility
-	- Alignments
+  - Accessibility
+  - Alignments
 # Plugins
   - WooCommerce
 --------------------------------------------------------------*/
 
 // Import variables and mixins.
-@import "abstracts/abstracts";
+@use "abstracts/abstracts";
 
 /*--------------------------------------------------------------
 # Generic
@@ -38,27 +38,31 @@ Theme Name: _s
 
 /* Normalize
 --------------------------------------------- */
-@import "generic/normalize";
+@use "generic/normalize";
 
 /* Box sizing
 --------------------------------------------- */
-@import "generic/box-sizing";
+@use "generic/box-sizing";
 
 /*--------------------------------------------------------------
 # Base
 --------------------------------------------------------------*/
-@import "base/base";
+@use "base/base";
 
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
+<<<<<<< Updated upstream
 // @import "layouts/content-sidebar"; // Uncomment this line for a sidebar on right side of your content.
 // @import "layouts/sidebar-content"; // Uncomment this line for a sidebar on left side of your content.
+=======
+@use "layouts/layouts";
+>>>>>>> Stashed changes
 
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
-@import "components/components";
+@use "components/components";
 
 /*--------------------------------------------------------------
 # Utilities
@@ -66,15 +70,11 @@ Theme Name: _s
 
 /* Accessibility
 --------------------------------------------- */
-@import "utilities/accessibility";
+@use "utilities/accessibility";
 
 /* Alignments
 --------------------------------------------- */
-@import "utilities/alignments";
-
-/* Alignments
---------------------------------------------- */
-@import "utilities/alignments";
+@use "utilities/alignments";
 
 /*--------------------------------------------------------------
 # Plugins
@@ -82,7 +82,4 @@ Theme Name: _s
 
 /* WooCommerce
 --------------------------------------------- */
-// @import "plugins/woocommerce";
-
-
-
+// @use "plugins/woocommerce";
