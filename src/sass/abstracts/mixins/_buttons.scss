@@ -3,75 +3,73 @@
  */
 @mixin buttons {
     text-decoration: none;
-    border-radius: $border__radius;
+    border-radius: var(--wp--custom--border-radius--sm);
     display: inline-flex;
     flex-direction: row;
     align-items: center;
-    padding: $margin__xxs $margin__xs;
+    padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
     justify-content: space-between;
     cursor: pointer;
 }
 
 @mixin button-colors($whichcolor: primary) {
-    color: #fff;
+    color: var(--wp--preset--color--neutral-light);
 
     @if primary == $whichcolor {
-        background-color: $color__primary;
-        border: 2px solid $color__primary;
+        background-color: var(--wp--preset--color--primary);
+        border: 2px solid var(--wp--preset--color--primary);
 
         &:visited {
-            color: #fff;
+            color: var(--wp--preset--color--neutral-light);
 
             &:hover {
-                color: $color__primary;
-                background-color: #fff;
+                color: var(--wp--preset--color--primary);
+                background-color: var(--wp--preset--color--neutral-light);
             }
         }
 
         &:hover,
         &:focus,
         &:active {
-            color: $color__primary;
-            background-color: #fff;
+            color: var(--wp--preset--color--primary);
+            background-color: var(--wp--preset--color--neutral-light);
         }
 
         &:not(a):focus {
-            border-radius: $border__radius;
-            outline: 1px dotted $color__primary;
+            border-radius: var(--wp--custom--border-radius--sm);
+            outline: 1px dotted var(--wp--preset--color--primary);
             outline-offset: 2px;
         }
-
-    }  @else if secondary == $whichcolor {
-        background-color: $color__secondary;
-        border: 2px solid $color__secondary;
+    } @else if secondary == $whichcolor {
+        background-color: var(--wp--preset--color--secondary);
+        border: 2px solid var(--wp--preset--color--secondary);
 
         &:visited {
-            color: #fff;
+            color: var(--wp--preset--color--neutral-light);
 
             &:hover {
-                color: $color__secondary;
-                background-color: #fff;
+                color: var(--wp--preset--color--secondary);
+                background-color: var(--wp--preset--color--neutral-light);
             }
         }
 
         &:hover,
         &:focus,
-        &:active
-        &:visited {
-            color: $color__secondary;
-            background-color: #fff;
+        &:active &:visited {
+            color: var(--wp--preset--color--secondary);
+            background-color: var(--wp--preset--color--neutral-light);
         }
 
         &:not(a):focus {
-            border-radius: $border__radius;
-            outline: 1px dotted $color__secondary;
+            border-radius: var(--wp--custom--border-radius--sm);
+            outline: 1px dotted var(--wp--preset--color--secondary);
             outline-offset: 2px;
         }
     }
 
     &:disabled,
-    [disabled='true'] {
-        color: $color__text-main;
+    [disabled="true"] {
+        color: var(--wp--preset--color--neutral-dark);
         background-color: #c0c0c0;
         border-color: #c0c0c0;
     }

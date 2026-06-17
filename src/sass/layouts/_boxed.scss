@@ -1,10 +1,47 @@
-.boxed {
-    margin: 0 auto;
-    width: 90%;
-    max-width: $desktop__max-width;
-    padding: $margin__xxs 0;
+@use "../abstracts/mixins/master";
+@use "../abstracts/variables/structure";
 
-    @include respond-bigger($breakpoint__medium) {
-        padding: $margin__xs 0;
+// WP alignment classes ensure a maximum width.
+// Extend this for smaller screens - set width to 90% - this will restrict content until max-width is reached.
+// This does not affect blocks with 'Full width' alignment (these will always reach viewport edges left and right).
+.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+
+    // Add vertical 'boxing' for layout elements that require it.
+    &.boxed {
+        padding: var(--wp--preset--spacing--20) 0;
+
+        @include master.respond-bigger(structure.$breakpoint__medium) {
+            padding: var(--wp--preset--spacing--40) 0;
+        }
+    }
+}
+
+// WP alignment classes ensure a maximum width and set left/right margins to 'auto'.
+// Override left margin to make content align left while still maintaining maximum width settings.
+// This does not affect blocks with 'Full width' alignment (these will always reach viewport edges left and right).
+.entry-content.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)),
+.page-content.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+    margin-left: 5% !important;
+
+    // When screen is 1600px, content has reached the maximum width of 90%.
+    // The --wp--style--global--wide-size is 1440px, which is 90% of 1600px.
+    @include master.respond-bigger(1600px) {
+        margin-left: calc((100% - var(--wp--style--global--wide-size)) / 2) !important;
+    }
+}
+
+// Match above layout settings for editor.
+.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+    margin-left: 5% !important;
+    margin-right: auto;
+    width: 90%;
+
+    // When screen is 1600px, content has reached the maximum width of 90%.
+    // The --wp--style--global--wide-size is 1440px, which is 90% of 1600px.
+    @include master.respond-bigger(1600px) {
+        margin-left: calc((100% - var(--wp--style--global--wide-size)) / 2) !important;
     }
 }

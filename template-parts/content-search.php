@@ -10,26 +10,32 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+	<header class="entry-header is-layout-constrained">
+		<div class="alignwide">
+			<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php
-			_s_posted_on();
-			_s_posted_by();
-			?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
+			<?php if ( 'post' === get_post_type() ) : ?>
+			<div class="entry-meta">
+				<?php
+				_s_posted_on();
+				_s_posted_by();
+				?>
+			</div><!-- .entry-meta -->
+			<?php endif; ?>
+		</div><!-- .alignwide -->
 	</header><!-- .entry-header -->
 
-	<?php _s_post_thumbnail(); ?>
+	<div class="is-layout-constrained">
+		<div class="alignwide">
+			<?php _s_post_thumbnail(); ?>
 
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
+			<div class="entry-summary">
+				<?php the_excerpt(); ?>
+			</div><!-- .entry-summary -->
 
-	<footer class="entry-footer">
-		<?php _s_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+			<footer class="entry-footer">
+				<?php _s_entry_footer(); ?>
+			</footer><!-- .entry-footer -->
+		</div> <!-- alignwide -->
+	</div><!-- .is-layout-constrained -->
 </article><!-- #post-<?php the_ID(); ?> -->

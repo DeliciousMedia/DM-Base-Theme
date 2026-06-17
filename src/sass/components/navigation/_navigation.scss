@@ -1,109 +1,254 @@
+@use "../../abstracts/mixins/master";
+@use "../../abstracts/variables/structure";
+
 .main-navigation {
-	display: block;
-	width: 100%;
+    display: block;
+    width: 100%;
 
-	ul {
-		display: none;
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
+    font-weight: 700;
+    text-align: center;
 
-		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
-			top: 100%;
-			left: -999em;
-			z-index: 99999;
+    @include master.respond-bigger(structure.$breakpoint__nav) {
+        height: 36px;
+        text-align: left;
+    }
 
-			ul {
-				left: -999em;
-				top: 0;
-			}
+    .menu-main-menu-container {
+        display: none;
+    }
 
-			li {
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
 
-				&:hover > ul,
-				&.focus > ul {
-					display: block;
-					left: auto;
-				}
-			}
+        li {
+            &.menu-item-has-children {
+                transition: all var(--wp--custom--transition-time--reg) ease;
+                position: relative;
 
-			a {
-				width: 200px;
-			}
+                > a {
+                    &:after {
+                        content: " +";
+                        position: absolute;
+                        margin-left: 0.5rem;
+                        transition: all var(--wp--custom--transition-time--reg) ease;
+                    }
+                }
 
-			:hover > a,
-			.focus > a {
-			}
+                &.active {
+                    > a:after {
+                        transform: rotate(45deg);
+                    }
+                }
+            }
 
-			a:hover,
-			a.focus {
-			}
-		}
+            a {
+                padding-top: var(--wp--preset--spacing--30);
+                padding-bottom: var(--wp--preset--spacing--30);
+                cursor: pointer;
+            }
+        }
 
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
-		}
-	}
+        &.sub-menu {
+            background-color: var(--wp--preset--color--neutral-light);
+            padding-left: var(--wp--preset--spacing--30);
 
-	li {
-		position: relative;
+            // Hiding sub menu with display: none means that the menu items aren't included in tab order when the sub menu is closed.
+            // This means that keyboard users don't have to keep tabbing thorough non visible items to get to the next visible one.
+            display: none;
 
-		&:hover > a,
-		&.focus > a {
-		}
-	}
+            z-index: 20;
+        }
+    }
 
-	a {
-		display: block;
-		text-decoration: none;
-	}
+    li {
+        &:hover > a,
+        &.focus > a {
+            text-decoration: underline;
+        }
+    }
 
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
-	}
+    a {
+        display: block;
+        text-decoration: none;
+
+        &:not(:first-of-type) {
+            padding: var(--wp--preset--spacing--30) 0;
+        }
+    }
+
+    @include master.respond-bigger(structure.$breakpoint__nav) {
+        .menu-main-menu-container {
+            display: block;
+        }
+
+        ul {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            li {
+                position: relative;
+                display: inline-block;
+
+                &:first-of-type {
+                    a {
+                        padding-left: 0;
+                    }
+                }
+
+                a {
+                    padding: 0 var(--wp--preset--spacing--30);
+                    text-decoration: underline;
+                }
+
+                &.top-level.menu-item-has-children {
+                    > a {
+                        padding-right: 28px;
+
+                        &:after {
+                            top: 0;
+                        }
+                    }
+                }
+            }
+
+            &.sub-menu {
+                width: 350px;
+                background-color: #fff;
+                position: absolute;
+                top: 100%;
+                box-shadow: var(--wp--preset--shadow--natural);
+                padding-left: 0;
+
+                li {
+                    width: 100%;
+                    border-bottom: 1px solid;
+
+                    a {
+                        padding: var(--wp--preset--spacing--30);
+                        &:hover {
+                            background-color: var(--wp--preset--color--neutral-dark);
+                            color: #fff;
+                        }
+                    }
+                }
+
+                ul.sub-menu {
+                    position: static;
+                    box-shadow: none;
+                    top: 0;
+                    padding-left: var(--wp--preset--spacing--30);
+                }
+            }
+
+            // Only add style to top level menu items.
+            &:not(.sub-menu) > li {
+                &:not(:last-of-type) {
+                    // border-right: 1px solid var(--wp--preset--color--neutral-dark);
+                }
+            }
+        }
+    }
 }
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
+/**
+ * Footer Navigation
+ */
+.footer-navigation {
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
 }
 
-@media screen and (min-width: 37.5em) {
-
-	.menu-toggle {
-		display: none;
-	}
-
-	.main-navigation ul {
-		display: flex;
-	}
+/*-------------------
+Mobile Navigation
+--------------------*/
+.main-navigation.toggled {
+    .menu-main-menu-container {
+        display: block;
+        padding-bottom: var(--wp--preset--spacing--40);
+    }
 }
 
+// Toggle button styles.
+button.menu-toggle {
+    border-radius: 0;
+    background-color: transparent;
+    border: none;
+    margin: 15px auto;
+    padding: var(--wp--preset--spacing--20) 0;
+
+    &:focus {
+        outline: 1px dashed var(--wp--preset--color--neutral-dark);
+        border-radius: 0;
+    }
+
+    @include master.respond-bigger(structure.$breakpoint__medium) {
+        // Make sure the top position of the button changes when .boxed padding does.
+        top: var(--wp--preset--spacing--40);
+    }
+    @include master.respond-bigger(structure.$breakpoint__nav) {
+        display: none;
+    }
+}
+
+// Mobile menu burger.
+.bar1,
+.bar2,
+.bar3 {
+    width: 32px;
+    height: 3px;
+    background-color: var(--wp--preset--color--neutral-dark);
+    margin: var(--wp--preset--spacing--20) 0;
+    transition: var(--wp--custom--transition-time--reg);
+}
+
+.bar1 {
+    margin-top: 0;
+}
+
+.bar3 {
+    margin-bottom: 0;
+}
+
+.toggled {
+    .bar1 {
+        transform: rotate(-45deg) translate(-8px, 7px);
+    }
+    .bar2 {
+        opacity: 0;
+    }
+    .bar3 {
+        transform: rotate(45deg) translate(-8px, -7px);
+    }
+}
+
+/*-------------------
+Comment & Post Navigation
+--------------------*/
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
+    @include master.boxed;
+    .site-main & {
+        //margin: 0 0 1.5em;
+    }
 
-	.site-main & {
-		margin: 0 0 1.5em;
-	}
+    .nav-links {
+        display: flex;
+    }
 
-	.nav-links {
-		display: flex;
-	}
+    .nav-previous {
+        flex: 1 0 50%;
+    }
 
-	.nav-previous {
-		flex: 1 0 50%;
-	}
-
-	.nav-next {
-		text-align: end;
-		flex: 1 0 50%;
-	}
+    .nav-next {
+        text-align: end;
+        flex: 1 0 50%;
+    }
 }

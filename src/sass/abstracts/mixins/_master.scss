@@ -22,15 +22,26 @@
 
 // Clear after (not all clearfix need this also)
 @mixin clearfix-after() {
-	clear: both;
+    clear: both;
 }
 
 // Media query helper
 @mixin respond-bigger($size) {
-    @media only screen and (min-width: $size) { @content; }
+    @media only screen and (min-width: $size) {
+        @content;
+    }
 }
 
 // Media query helper
 @mixin respond-smaller($size) {
-    @media only screen and (max-width: $size) { @content; }
+    @media only screen and (max-width: $size) {
+        @content;
+    }
+}
+
+// Box some of the content.
+@mixin boxed {
+    margin: 0 auto;
+    width: 90%;
+    max-width: var(--wp--custom--max-width--desktop);
 }

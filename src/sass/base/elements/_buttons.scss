@@ -1,15 +1,17 @@
+@use "../../abstracts/mixins/buttons";
+
 button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
-a.button, {
+a.button {
     justify-content: center;
 
-    @include buttons;
+    @include buttons.buttons;
 
-    @include button-colors(primary);
+    @include buttons.button-colors(primary);
 
     &.secondary {
-        @include button-colors(secondary);
+        @include buttons.button-colors(secondary);
     }
 }

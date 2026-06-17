@@ -1,4 +1,3 @@
-@import "master";
-@import "columnsetup";
-@import "handlecolors";
-@import "buttons";
+@use "master";
+@use "handlecolors";
+@use "buttons";

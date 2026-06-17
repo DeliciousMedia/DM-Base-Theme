@@ -16,15 +16,6 @@
  */
 function _s_setup() {
 	/*
-		* Make theme available for translation.
-		* Translations can be filed in the /languages/ directory.
-		* If you're building a theme based on _s, use a find and replace
-		* to change '_s' to the name of your theme in all the template files.
-		*/
-
-	load_theme_textdomain( '_s', get_template_directory() . '/languages' );
-
-	/*
 		* Let WordPress manage the document title.
 		* By adding theme support, we declare that this theme does not use a
 		* hard-coded <title> tag in the document head, and expect WordPress to
@@ -45,67 +36,8 @@ function _s_setup() {
 			'menu-1' => esc_html__( 'Primary', '_s' ),
 		]
 	);
-
-	/*
-		* Switch default core markup for search form, comment form, and comments
-		* to output valid HTML5.
-		*/
-	add_theme_support(
-		'html5',
-		[
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-			'style',
-			'script',
-		]
-	);
-
-	// Set up the WordPress core custom background feature.
-	add_theme_support(
-		'custom-background',
-		apply_filters(
-			'_s_custom_background_args',
-			[
-				'default-color' => 'ffffff',
-				'default-image' => '',
-			]
-		)
-	);
-
-	// Add theme support for selective refresh for widgets.
-	add_theme_support( 'customize-selective-refresh-widgets' );
-
-	/**
-	 * Add support for core custom logo.
-	 *
-	 * @link https://codex.wordpress.org/Theme_Logo
-	 */
-	add_theme_support(
-		'custom-logo',
-		[
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
-			'flex-height' => true,
-		]
-	);
 }
 add_action( 'after_setup_theme', '_s_setup' );
-
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function _s_content_width() {
-	$GLOBALS['content_width'] = apply_filters( '_s_content_width', 640 );
-}
-add_action( 'after_setup_theme', '_s_content_width', 0 );
 
 /**
  * Enqueue scripts and styles.
@@ -118,7 +50,9 @@ function _s_scripts() {
 	wp_enqueue_style( '_s-style', get_stylesheet_directory_uri() . '/assets/css/site.css', [], $theme->get( 'Version' ) );
 	wp_style_add_data( '_s-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( '_s-main', get_template_directory_uri() . '/assets/js/_s.js', [], $theme->get( 'Version' ), true );
+	wp_enqueue_script( 'jquery' );
+
+	wp_enqueue_script( '_s-main', get_template_directory_uri() . '/assets/js/site.js', [], $theme->get( 'Version' ), true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -130,15 +64,3 @@ add_action( 'wp_enqueue_scripts', '_s_scripts' );
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
-
-/**
- * Load WooCommerce compatibility file.
- */
-if ( class_exists( 'WooCommerce' ) ) {
-	require get_template_directory() . '/inc/woocommerce.php';
-}
