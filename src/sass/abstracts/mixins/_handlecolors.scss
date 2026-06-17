@@ -1,0 +1,44 @@
+//Mixin for handling dark backgrounds so we have light text on top.
+@mixin darkbg {
+    color: var(--wp--preset--color--neutral-light);
+
+    a {
+        @include links("darkbg");
+    }
+}
+
+//Mixin to handle links on dark or light backgrounds.
+@mixin links($light-or-dark-background) {
+    $link: var(--wp--custom--link-colors--lightbg--link);
+    $visited: var(--wp--custom--link-colors--lightbg--visited);
+    $hover: var(--wp--custom--link-colors--lightbg--hover);
+    $focus: var(--wp--preset--color--neutral-dark);
+
+    @if "darkbg" == $light-or-dark-background {
+        $link: var(--wp--custom--link-colors--darkbg--link);
+        $visited: var(--wp--custom--link-colors--darkbg--visited);
+        $hover: var(--wp--custom--link-colors--darkbg--hover);
+        $focus: var(--wp--preset--color--neutral-light);
+    }
+
+    color: $link;
+
+    &:visited {
+        color: $visited;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $hover;
+    }
+
+    &:focus {
+        outline: 1px dashed $focus;
+    }
+
+    &:hover,
+    &:active {
+        outline: 0;
+    }
+}

@@ -14,20 +14,21 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-	color: $color__text-input;
-	border: 1px solid $color__border-input;
-	border-radius: 3px;
-	padding: 3px;
+    color: var(--wp--preset--color--neutral-dark);
+    border: 1px solid var(--wp--preset--color--neutral-dark);
+    border-radius: var(--wp--custom--border--radius--sm);
+    padding: 3px;
+    line-height: var(--wp--custom--line-height--body);
 
-	&:focus {
-		color: $color__text-input-focus;
-	}
+    &:focus {
+        color: var(--wp--preset--color--neutral-dark);
+    }
 }
 
 select {
-	border: 1px solid $color__border-input;
+    border: 1px solid var(--wp--preset--color--neutral-dark);
 }
 
 textarea {
-	width: 100%;
+    width: 100%;
 }
