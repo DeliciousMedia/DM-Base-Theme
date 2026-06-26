@@ -57,6 +57,9 @@ function _s_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	// Always enqueue WP Columns so we can use the styles across the theme.
+	wp_enqueue_style( 'wp-block-columns' );
 }
 add_action( 'wp_enqueue_scripts', '_s_scripts' );
 
